@@ -37,3 +37,25 @@ class Book:
     @copyright.setter
     def copyright(self,new_copyright):
         self.__copyright=new_copyright
+
+
+class Textbook(Book):
+    """Textbook class, inheriting from Book"""
+    @property
+    def subject(self):
+        return self.__subject
+
+    @subject.setter
+    def subject(self,new_subject):
+        self.__subject=new_subject
+
+
+class AddressBook(Book):
+    """AddressBook class, inheriting from Book"""
+    @property
+    def number_addresses(self):
+        return self.__numadds
+
+    @number_addresses.setter
+    def number_addresses(self,num):
+        self.__numadds=num

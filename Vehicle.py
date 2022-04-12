@@ -30,10 +30,7 @@ class Vehicle:
 
     @property
     def number_wheels(self):
-        if self.__number_wheels==-1:
-            return None
-        else:
-            return self.__number_wheels
+        return self.__number_wheels
 
     @type.setter
     def type(self,new_type):
@@ -66,3 +63,88 @@ class Vehicle:
         print("Moving backwards")
 
 
+class Car(Vehicle):
+    """Car class, inheriting from Vehicle"""
+    def __init__(self,make,model):
+        Vehicle.__init__(self,"car")
+        Vehicle.make=make
+        Vehicle.model=model
+        Vehicle.number_wheels=4
+
+
+class Boat(Vehicle):
+    """Boat class, inheriting from Vehicle"""
+    def __init__(self,make,model):
+        Vehicle.__init__(self,"boat")
+        Vehicle.make=make
+        Vehicle.model=model
+        Vehicle.number_wheels=0
+        self.__floats=True
+
+    @property
+    def floats(self):
+        return self.__floats
+
+    @floats.setter
+    def floats(self,float_bool):
+        self.__floats=float_bool
+
+
+class Bicycle(Vehicle):
+    """Bicycle class, inheriting from Vehicle"""
+    def __init__(self,make,model,kickstand_bool):
+        Vehicle.__init__(self,"bicycle")
+        Vehicle.make=make
+        Vehicle.model=model
+        Vehicle.number_wheels=2
+        self.__kickstand=kickstand_bool
+
+    @property
+    def has_kickstand(self):
+        return self.__kickstand
+
+    @has_kickstand.setter
+    def has_kickstand(self,kickstand_bool):
+        self.__kickstand=kickstand_bool
+
+    def reverse():
+        print("not a viable option for this vehicle")
+
+
+class HotAirBaloon(Vehicle):
+    """HotAirBaloon class, inheriting from Vehicle"""
+    def __init__(self):
+        Vehicle.__init__(self,"hot air baloon")
+        self.__tied=True
+    
+    @property
+    def tied_down(self):
+        return self.__tied
+
+    @tied_down.setter
+    def tied_down(self,tied_bool):
+        self.__tied=tied_bool
+
+    def move(self):
+        if self.__tied:
+            print("The baloon is tied down and can't move")
+        else:
+            print("We can see everyting here in the sky")
+    
+    def reverse(self):
+        if self.__tied:
+            print("The baloon is tied down and can't move")
+        else:
+            print("We're at the mercy of the wind, plans are meaningless")
+        
+    def take_off(self):
+        if self.__tied:
+            print("The baloon is tied down and can't move")
+        else:
+            print("Taking Off")
+
+    def land(self):
+        if self.__tied:
+            print("The baloon is already on the ground")
+        else:
+            print("Landing")
